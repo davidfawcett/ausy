@@ -7,6 +7,7 @@
     <meta name="description" content="AUSY delivers ~11.5% variable yield with tax-deferred ROC distributions. Clean, ASX-listed access to Strategy Inc. STRC income for Australian SMSFs and investors.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
 
@@ -158,6 +159,14 @@
             box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.08);
         }
 
+        /* Clean Exit Simulator styles */
+        .strategy-btn {
+            transition: all 0.15s ease;
+        }
+        .strategy-btn.active {
+            box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.4);
+        }
+
         /* Fix for native select dropdowns on dark theme */
         select.form-input {
             background-color: #112b4f;
@@ -212,9 +221,12 @@
 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                    <a href="#who" class="nav-link text-white/90 hover:text-white">Who It's For</a>
                     <a href="#why" class="nav-link text-white/90 hover:text-white">Why AUSY</a>
                     <a href="#features" class="nav-link text-white/90 hover:text-white">Features</a>
                     <a href="#how" class="nav-link text-white/90 hover:text-white">How it Works</a>
+                    <a href="#about-strc" class="nav-link text-white/90 hover:text-white">About STRC</a>
+                    <a href="#clean-exit" class="nav-link text-white/90 hover:text-white">Clean Exit</a>
                     <a href="#risks" class="nav-link text-white/90 hover:text-white">Risks</a>
                 </div>
 
@@ -240,9 +252,12 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#0a2540]">
             <div class="px-6 py-4 flex flex-col gap-y-1 text-sm">
+                <a href="#who" class="mobile-nav-link px-4 py-3 rounded-lg hover:bg-white/5">Who It's For</a>
                 <a href="#why" class="mobile-nav-link px-4 py-3 rounded-lg hover:bg-white/5">Why AUSY</a>
                 <a href="#features" class="mobile-nav-link px-4 py-3 rounded-lg hover:bg-white/5">Features</a>
                 <a href="#how" class="mobile-nav-link px-4 py-3 rounded-lg hover:bg-white/5">How it Works</a>
+                <a href="#about-strc" class="mobile-nav-link px-4 py-3 rounded-lg hover:bg-white/5">About STRC</a>
+                <a href="#clean-exit" class="mobile-nav-link px-4 py-3 rounded-lg hover:bg-white/5">Clean Exit</a>
                 <a href="#risks" class="mobile-nav-link px-4 py-3 rounded-lg hover:bg-white/5">Risks &amp; Info</a>
                 <div class="h-px bg-white/10 my-2"></div>
                 <button onclick="document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' }); document.getElementById('mobile-menu').classList.add('hidden')" 
@@ -281,15 +296,15 @@
                     </div>
                     
                     <div class="flex flex-col md:flex-row md:items-end gap-x-4 gap-y-1">
-                        <h1 class="text-5xl md:text-[56px] font-semibold tracking-[-2.2px] section-header leading-none text-white/95">
-                            Australian STRC Yield
+                        <h1 class="text-5xl md:text-[52px] font-semibold tracking-[-2.1px] section-header leading-none text-white/95">
+                            Professional income.<br class="hidden md:block"> Without the property.
                         </h1>
                     </div>
                 </div>
 
                 <!-- Tagline -->
                 <p class="mt-6 max-w-2xl text-2xl md:text-3xl font-light tracking-[-0.3px] text-white/90 leading-tight">
-                    Clean, tax-efficient access to<br class="hidden md:block"> Strategy Inc. STRC high-yield income.
+                    A listed way for Australians to access<br class="hidden md:block"> ~11.5% variable yield with real tax advantages.
                 </p>
 
                 <!-- Key metrics -->
@@ -301,10 +316,10 @@
                         </div>
                     </div>
                     <div class="px-4 h-11 bg-white/5 border border-white/10 rounded-2xl flex items-center text-sm font-medium">
-                        Tax-deferred ROC
+                        Tax-deferred distributions
                     </div>
                     <div class="px-4 h-11 bg-white/5 border border-white/10 rounded-2xl flex items-center text-sm font-medium">
-                        Built for SMSFs
+                        For SMSFs &amp; Individuals
                     </div>
                 </div>
 
@@ -359,17 +374,58 @@
                     </div>
                 </div>
                 <div class="text-white/50 text-[11px]">
-                    Target launch: Q2 2027
+                    Target launch: Q2 2027 • Early access now open
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- WHO AUSY IS FOR -->
+    <section id="who" class="max-w-screen-2xl mx-auto px-6 md:px-12 py-16 border-t border-white/10">
+        <div class="max-w-2xl mb-10">
+            <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#00d4ff]">WHO THIS IS FOR</div>
+            <h2 class="section-header text-5xl md:text-6xl font-semibold tracking-[-2.25px] leading-[1.05] mt-2">A smarter way to invest for Australians who want better.</h2>
+            <p class="mt-4 text-xl text-white/70 max-w-xl">Whether you're exiting real estate, looking for tax-efficient income, or simply want professional-grade returns without the complexity.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-5">
+            <!-- Card 1: Property Investors -->
+            <div class="glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-colors">
+                <div class="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-house text-[#00d4ff] text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-2xl tracking-tight">Property investors ready to move on</h3>
+                <p class="mt-4 text-white/70 leading-relaxed">Tired of tenants, maintenance, stamp duty, and having all your wealth tied up in one asset? AUSY offers liquidity, professional management, and genuine diversification.</p>
+                <div class="mt-6 text-sm text-white/60">No more 3am plumbing emergencies.</div>
+            </div>
+
+            <!-- Card 2: High Income Professionals -->
+            <div class="glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-colors">
+                <div class="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-user-tie text-[#00d4ff] text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-2xl tracking-tight">High earners who want tax efficiency</h3>
+                <p class="mt-4 text-white/70 leading-relaxed">Doctors, lawyers, executives and other professionals looking for strong, tax-deferred income without adding another full-time job. Simple, listed, and designed to work alongside your busy life.</p>
+                <div class="mt-6 text-sm text-white/60">Income that doesn't require weekends.</div>
+            </div>
+
+            <!-- Card 3: SMSFs -->
+            <div class="glass border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-colors">
+                <div class="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-shield-halved text-[#00d4ff] text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-2xl tracking-tight">SMSF trustees seeking better returns</h3>
+                <p class="mt-4 text-white/70 leading-relaxed">Looking for a genuinely diversified, professionally managed income stream with strong historical performance and transparent monthly reporting. Built for SMSFs that want more than term deposits.</p>
+                <div class="mt-6 text-sm text-white/60">Serious returns with serious transparency.</div>
+            </div>
+        </div>
+    </section>
+
     <!-- WHY AUSY -->
     <section id="why" class="max-w-screen-2xl mx-auto px-6 md:px-12 pt-16 md:pt-20 pb-10">
         <div class="max-w-2xl mb-10">
             <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#00d4ff]">THE OPPORTUNITY</div>
-            <h2 class="section-header text-5xl md:text-6xl font-semibold tracking-[-2.25px] leading-[1.05] mt-2">Why Australian investors are choosing AUSY</h2>
+            <h2 class="section-header text-5xl md:text-6xl font-semibold tracking-[-2.25px] leading-[1.05] mt-2">Why more Australians are choosing AUSY</h2>
         </div>
 
         <div class="grid md:grid-cols-3 gap-4 md:gap-6">
@@ -403,6 +459,184 @@
                 <h3 class="font-semibold text-3xl tracking-tight">Built for Australians</h3>
                 <p class="mt-4 text-white/75 leading-relaxed">Purpose-designed for SMSFs, individual investors, family offices and joint accounts. Full compliance with Australian tax and superannuation rules.</p>
                 <div class="mt-6 text-xs font-medium text-white/60">No foreign investor restrictions • Fully domiciled</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROC & TAX DEFERRAL SIMULATOR -->
+    <section id="roc-simulator" class="max-w-screen-2xl mx-auto px-6 md:px-12 py-16 border-t border-white/10">
+        <div class="max-w-3xl mb-10">
+            <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#00d4ff]">HOW IT WORKS</div>
+            <h2 class="section-header text-5xl md:text-6xl font-semibold tracking-[-2.25px] leading-[1.05] mt-2">How ROC &amp; Tax Deferral Works</h2>
+            <p class="mt-4 text-xl text-white/70">See how your distributions stay largely tax-deferred as Return of Capital reduces your cost base — until it is exhausted.</p>
+        </div>
+
+        <div class="glass border border-white/10 rounded-3xl p-8 md:p-10">
+            <!-- Controls -->
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div>
+                    <label class="text-xs font-medium tracking-wider text-white/60 block mb-1.5">INITIAL INVESTMENT</label>
+                    <div class="relative">
+                        <span class="absolute left-5 top-1/2 -translate-y-1/2 text-white/50">$</span>
+                        <input type="number" id="roc-investment" value="100000" 
+                               class="form-input w-full pl-9 pr-5 h-12 bg-white/5 border border-white/15 focus:border-[#00d4ff] rounded-2xl text-white text-lg font-semibold"
+                               oninput="updateROCSimulator()">
+                    </div>
+                </div>
+                <div>
+                    <label class="text-xs font-medium tracking-wider text-white/60 block mb-1.5">ANNUAL YIELD</label>
+                    <div class="relative">
+                        <input type="number" id="roc-yield" value="11.5" step="0.1"
+                               class="form-input w-full pr-12 h-12 bg-white/5 border border-white/15 focus:border-[#00d4ff] rounded-2xl text-white text-lg font-semibold"
+                               oninput="updateROCSimulator()">
+                        <span class="absolute right-5 top-1/2 -translate-y-1/2 text-white/50">%</span>
+                    </div>
+                    <div class="text-[10px] text-white/50 mt-1">Assumed constant for illustration</div>
+                </div>
+                <div>
+                    <label class="text-xs font-medium tracking-wider text-white/60 block mb-1.5">YOUR MARGINAL TAX RATE</label>
+                    <select id="roc-tax-rate" class="form-input w-full h-12 bg-white/5 border border-white/15 focus:border-[#00d4ff] rounded-2xl text-white text-lg font-semibold px-4" onchange="updateROCSimulator()">
+                        <option value="0">0% (Pension Phase)</option>
+                        <option value="15" selected>15% (SMSF Accumulation)</option>
+                        <option value="30">30%</option>
+                        <option value="47">47% (Top Marginal Rate)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Chart -->
+            <div class="mb-6">
+                <canvas id="roc-chart" height="120"></canvas>
+            </div>
+
+            <!-- Key Insights -->
+            <div class="grid md:grid-cols-3 gap-4 mt-8">
+                <div class="glass border border-white/10 rounded-2xl p-5">
+                    <div class="text-xs text-white/60 tracking-wider">COST BASE EXHAUSTED AFTER</div>
+                    <div id="roc-years" class="text-3xl font-semibold tracking-tighter mt-1 text-[#00d4ff]">8.7 years</div>
+                </div>
+                <div class="glass border border-white/10 rounded-2xl p-5">
+                    <div class="text-xs text-white/60 tracking-wider">TOTAL DISTRIBUTIONS (15 YRS)</div>
+                    <div id="roc-total-dist" class="text-3xl font-semibold tracking-tighter mt-1">$0</div>
+                    <div id="roc-tax-deferred" class="text-sm text-emerald-400 mt-1">All tax-deferred initially</div>
+                </div>
+                <div class="glass border border-white/10 rounded-2xl p-5">
+                    <div class="text-xs text-white/60 tracking-wider">EST. TAX OVER 15 YEARS</div>
+                    <div id="roc-total-tax" class="text-3xl font-semibold tracking-tighter mt-1">
+                        $0
+                    </div>
+                    <div class="text-sm text-white/60 mt-1">Effective rate on total distributions</div>
+                </div>
+            </div>
+
+            <div class="mt-8 text-sm text-white/60 leading-relaxed">
+                <strong>How to read this:</strong> While your cost base remains, distributions are treated as Return of Capital and are generally tax-deferred. 
+                Once the cost base is fully exhausted (around 8.7 years at 11.5%), further distributions become taxable income. 
+                This is a simplified illustration assuming constant yield and 100% of distributions reducing cost base until exhausted.
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW DRP WORKS -->
+    <section id="drp-simulator" class="max-w-screen-2xl mx-auto px-6 md:px-12 py-16 border-t border-white/10">
+        <div class="max-w-3xl mb-10">
+            <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#00d4ff]">LOAN SERVICING</div>
+            <h2 class="section-header text-5xl md:text-6xl font-semibold tracking-[-2.25px] leading-[1.05] mt-2">How DRP Works</h2>
+            <p class="mt-4 text-xl text-white/70">Tax-deferred products like AUSY are commonly used with leverage. This tool shows how you can use part of your distributions to service a loan while the rest is reinvested.</p>
+        </div>
+
+        <div class="glass border border-white/10 rounded-3xl p-8 md:p-10">
+            <!-- Controls -->
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div>
+                    <label class="text-xs font-medium tracking-wider text-white/60 block mb-1.5">STARTING VALUE</label>
+                    <div class="relative">
+                        <span class="absolute left-5 top-1/2 -translate-y-1/2 text-white/50">$</span>
+                        <input type="number" id="drp-investment" value="100000" 
+                               class="form-input w-full pl-9 pr-5 h-12 bg-white/5 border border-white/15 focus:border-[#00d4ff] rounded-2xl text-white text-lg font-semibold"
+                               oninput="updateDRPSimulator()">
+                    </div>
+                </div>
+                <div>
+                    <label class="text-xs font-medium tracking-wider text-white/60 block mb-1.5">ANNUAL YIELD</label>
+                    <div class="relative">
+                        <input type="number" id="drp-yield" value="11.5" step="0.1"
+                               class="form-input w-full pr-12 h-12 bg-white/5 border border-white/15 focus:border-[#00d4ff] rounded-2xl text-white text-lg font-semibold"
+                               oninput="updateDRPSimulator()">
+                        <span class="absolute right-5 top-1/2 -translate-y-1/2 text-white/50">%</span>
+                    </div>
+                </div>
+                <div>
+                    <label class="text-xs font-medium tracking-wider text-white/60 block mb-1.5">CASH TO RETAIN FOR LOAN SERVICING</label>
+                    
+                    <!-- Mode selector -->
+                    <div class="flex rounded-xl bg-white/5 p-1 mb-2 text-xs">
+                        <label class="flex-1">
+                            <input type="radio" name="drp-retain-mode" value="fixed" checked onchange="updateDRPSimulator()" class="hidden peer">
+                            <span class="block text-center py-1 rounded-lg peer-checked:bg-[#00d4ff] peer-checked:text-[#0a2540] cursor-pointer">Fixed $</span>
+                        </label>
+                        <label class="flex-1">
+                            <input type="radio" name="drp-retain-mode" value="percent" onchange="updateDRPSimulator()" class="hidden peer">
+                            <span class="block text-center py-1 rounded-lg peer-checked:bg-[#00d4ff] peer-checked:text-[#0a2540] cursor-pointer">Percentage</span>
+                        </label>
+                    </div>
+
+                    <!-- Percentage mode -->
+                    <div id="drp-percent-mode">
+                        <input type="range" id="drp-retain-percent" min="0" max="100" step="5" value="30"
+                               class="w-full accent-[#00d4ff]" oninput="updateDRPSimulator()">
+                        <div class="flex justify-between text-xs text-white/60 mt-1">
+                            <span>0%</span>
+                            <span id="drp-retain-percent-value" class="font-medium text-white">30%</span>
+                            <span>100%</span>
+                        </div>
+                    </div>
+
+                    <!-- Fixed dollar mode -->
+                    <div id="drp-fixed-mode" class="hidden">
+                        <div class="relative">
+                            <span class="absolute left-5 top-1/2 -translate-y-1/2 text-white/50">$</span>
+                            <input type="number" id="drp-retain-fixed" value="8000" 
+                                   class="form-input w-full pl-9 pr-5 h-11 bg-white/5 border border-white/15 focus:border-[#00d4ff] rounded-2xl text-white"
+                                   oninput="updateDRPSimulator()">
+                        </div>
+                        <div class="text-[10px] text-white/50 mt-1">Fixed annual amount to keep as cash</div>
+                        <div class="text-[10px] text-white/40 mt-0.5">~$8,000 ≈ annual payments on a $100k mortgage at ~6%</div>
+                    </div>
+
+                    <div class="text-[10px] text-white/50 mt-1" id="drp-retain-help">
+                        Percentage of each distribution kept as cash for loan payments.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart -->
+            <div class="mb-6">
+                <canvas id="drp-chart" height="110"></canvas>
+            </div>
+
+            <!-- Key Insights -->
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="glass border border-white/10 rounded-2xl p-5">
+                    <div class="text-xs text-white/60 tracking-wider">TOTAL CASH EXTRACTED (15 YRS)</div>
+                    <div id="drp-cash-extracted" class="text-3xl font-semibold tracking-tighter mt-1">$0</div>
+                    <div class="text-sm text-emerald-400 mt-1">Available for loan payments</div>
+                </div>
+                <div class="glass border border-white/10 rounded-2xl p-5">
+                    <div class="text-xs text-white/60 tracking-wider">FINAL PORTFOLIO VALUE</div>
+                    <div id="drp-final-value" class="text-3xl font-semibold tracking-tighter mt-1">$0</div>
+                    <div class="text-sm text-white/60 mt-1">After 15 years of partial DRP</div>
+                </div>
+                <div class="glass border border-white/10 rounded-2xl p-5">
+                    <div class="text-xs text-white/60 tracking-wider">NEW TRANCHES CREATED</div>
+                    <div id="drp-tranches" class="text-3xl font-semibold tracking-tighter mt-1">0</div>
+                    <div class="text-sm text-amber-400 mt-1">Each with its own cost base</div>
+                </div>
+            </div>
+
+            <div class="mt-8 text-sm text-white/60 leading-relaxed">
+                Each DRP reinvestment purchases new AUSY units and creates a fresh tranche with its own cost base. 
+                These tranches will exhaust at different times, which is exactly why we built the <a href="#clean-exit" class="text-[#00d4ff] hover:underline">Clean Exit Simulator</a> — so you can choose which tranches to sell when the time comes.
             </div>
         </div>
     </section>
@@ -490,10 +724,7 @@
                     </div>
                 </div>
                 <h4 class="font-semibold text-[21px] tracking-tight mt-6">Full Transparency</h4>
-                <p class="text-white/70 mt-3 text-[15px] leading-relaxed flex-1">Monthly NAV reports, underlying STRC holdings, distribution composition, and independent audit summaries published on-chain and via ASX.</p>
-                <div class="text-xs text-emerald-400 mt-4 font-medium flex items-center gap-x-1">
-                    <i class="fa-solid fa-link"></i> <span>VERIFIABLE ON-CHAIN</span>
-                </div>
+                <p class="text-white/70 mt-3 text-[15px] leading-relaxed flex-1">Monthly NAV reports, underlying STRC holdings, distribution composition, and independent audit summaries published regularly via the ASX and other channels.</p>
             </div>
         </div>
     </section>
@@ -550,6 +781,210 @@
                 <div class="mt-6 pl-1">
                     <h4 class="font-semibold text-xl tracking-tight">Receive income + reporting</h4>
                     <p class="text-white/70 mt-3 text-[15px]">Distributions paid quarterly. Full tax documentation delivered automatically through the portal each financial year.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT THE UNDERLYING -->
+    <section id="about-strc" class="max-w-screen-2xl mx-auto px-6 md:px-12 py-16 border-t border-white/10">
+        <div class="max-w-3xl mb-10">
+            <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#00d4ff]">THE ENGINE BEHIND AUSY</div>
+            <h2 class="section-header text-5xl md:text-6xl font-semibold tracking-[-2.25px] leading-[1.05] mt-2">About the Underlying</h2>
+            <p class="mt-4 text-xl text-white/70">AUSY provides exposure to Strategy Inc. (STRC) — one of the largest and most liquid Bitcoin-focused investment vehicles in the world.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+            <div class="glass border border-white/10 rounded-3xl p-8">
+                <div class="text-[#00d4ff] text-sm font-semibold tracking-wider mb-3">SCALE & ADOPTION</div>
+                <h3 class="text-2xl font-semibold tracking-tight mb-3">Over USD $10.5 billion invested</h3>
+                <p class="text-white/70">STRC has seen remarkable adoption. With more than $10.5 billion invested and growing, it has become one of the most widely held Bitcoin-related products globally.</p>
+            </div>
+
+            <div class="glass border border-white/10 rounded-3xl p-8">
+                <div class="text-[#00d4ff] text-sm font-semibold tracking-wider mb-3">PRICE STABILITY</div>
+                <h3 class="text-2xl font-semibold tracking-tight mb-3">Hugs the USD $100 price point</h3>
+                <p class="text-white/70">STRC is designed to trade very close to USD $100. This relative price stability helps deliver more predictable returns compared to holding Bitcoin directly.</p>
+            </div>
+
+            <div class="glass border border-white/10 rounded-3xl p-8">
+                <div class="text-[#00d4ff] text-sm font-semibold tracking-wider mb-3">LIQUIDITY</div>
+                <h3 class="text-2xl font-semibold tracking-tight mb-3">Exceptional trading depth</h3>
+                <p class="text-white/70">With an average 30-day trading volume of approximately USD $330 million, STRC offers genuine liquidity. You can enter and exit positions quickly and at scale — something very few Bitcoin vehicles can match.</p>
+            </div>
+
+            <div class="glass border border-white/10 rounded-3xl p-8">
+                <div class="text-[#00d4ff] text-sm font-semibold tracking-wider mb-3">RETURNS</div>
+                <h3 class="text-2xl font-semibold tracking-tight mb-3">Generous, variable yield</h3>
+                <p class="text-white/70">STRC has delivered strong distributions, with a target around 11.5%. While the yield is variable, it has historically been very attractive for a Bitcoin-linked product.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RISKS OF THE UNDERLYING -->
+    <section id="risks-strc" class="max-w-screen-2xl mx-auto px-6 md:px-12 py-16 border-t border-white/10">
+        <div class="max-w-2xl mb-10">
+            <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#00d4ff]">IMPORTANT RISKS</div>
+            <h2 class="section-header text-5xl md:text-6xl font-semibold tracking-[-2.25px] leading-[1.05] mt-2">Risks of the Underlying</h2>
+            <p class="mt-4 text-xl text-white/70">It's important to understand what you're actually exposed to when investing in AUSY.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+            <!-- Risk 1 -->
+            <div class="glass border border-white/10 rounded-3xl p-8">
+                <div class="text-[#00d4ff] text-sm font-semibold tracking-wider mb-3">VARIABLE YIELD</div>
+                <h3 class="text-2xl font-semibold tracking-tight mb-3">Returns are not guaranteed</h3>
+                <p class="text-white/70">The 11.5% target yield is variable. Distributions have been as low as 9% in the past and could fall again depending on Bitcoin market conditions and Strategy Inc.'s performance.</p>
+            </div>
+
+            <!-- Risk 2 -->
+            <div class="glass border border-white/10 rounded-3xl p-8">
+                <div class="text-[#00d4ff] text-sm font-semibold tracking-wider mb-3">BITCOIN EXPOSURE</div>
+                <h3 class="text-2xl font-semibold tracking-tight mb-3">Bitcoin is the underlying asset</h3>
+                <p class="text-white/70">STRC's performance is directly tied to Bitcoin. A significant and sustained drop in Bitcoin's value would negatively impact STRC and, in turn, AUSY distributions and capital value.</p>
+            </div>
+
+            <!-- Risk 3 -->
+            <div class="glass border border-white/10 rounded-3xl p-8">
+                <div class="text-[#00d4ff] text-sm font-semibold tracking-wider mb-3">PRICE STABILITY</div>
+                <h3 class="text-2xl font-semibold tracking-tight mb-3">The $100 price point might not hold</h3>
+                <p class="text-white/70">While STRC aims to trade near USD $100, the market ultimately determines the price — not Strategy Inc. It could trade materially above or below this level.</p>
+            </div>
+
+            <!-- Risk 4 -->
+            <div class="glass border border-white/10 rounded-3xl p-8">
+                <div class="text-[#00d4ff] text-sm font-semibold tracking-wider mb-3">MARKET ROTATIONS</div>
+                <h3 class="text-2xl font-semibold tracking-tight mb-3">Bitcoin rallies create two-way risk</h3>
+                <p class="text-white/70">During strong Bitcoin rallies, investors may rotate out of STRC into direct Bitcoin or MSTR, putting downward pressure on the price. When Bitcoin tops, capital rotating back into STRC can also impact distribution yields.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY STRATEGY OFFERS HIGH RETURNS -->
+    <section id="why-strategy" class="max-w-screen-2xl mx-auto px-6 md:px-12 py-16 border-t border-white/10">
+        <div class="max-w-2xl mb-10">
+            <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#00d4ff]">THE ECONOMICS</div>
+            <h2 class="section-header text-5xl md:text-6xl font-semibold tracking-[-2.25px] leading-[1.05] mt-2">Why is Strategy offering such high returns?</h2>
+        </div>
+
+        <div class="glass border border-white/10 rounded-3xl p-10">
+            <div class="text-[#00d4ff] text-sm font-semibold tracking-wider mb-3">HIGH CONVICTION</div>
+            <h3 class="text-2xl font-semibold tracking-tight mb-6">Strategy is placing a long-term bet on Bitcoin</h3>
+
+            <div class="space-y-5 text-lg text-white/80 leading-relaxed">
+                <p>The short and most honest answer is that Strategy believes they are getting the better end of the deal by offering 11.5% on your investment.</p>
+                
+                <p>Strategy uses that capital to buy more Bitcoin. They have strong conviction that, over time, Bitcoin will deliver returns significantly higher than the 11.5% they are paying out — they believe Bitcoin can return more than 30% per year on average.</p>
+                
+                <p class="text-white/60">In other words, they are comfortable offering you a high distribution because they expect to make substantially more on the Bitcoin they purchase with your capital.</p>
+            </div>
+        </div>
+
+        <div class="mt-6 text-sm text-white/50 px-10">
+            This is a transparent bet by Strategy Inc. on the long-term performance of Bitcoin. Like any bet, it carries risk on both sides.
+        </div>
+    </section>
+
+    <!-- CLEAN EXIT SIMULATOR -->
+    <section id="clean-exit" class="max-w-screen-2xl mx-auto px-6 md:px-12 py-16 border-t border-white/10">
+        <div class="max-w-3xl mb-10">
+            <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#00d4ff]">EXIT PLANNING</div>
+            <h2 class="section-header text-5xl md:text-[52px] font-semibold tracking-[-2.1px] leading-[1.05] mt-2">Clean Exit Simulator</h2>
+            <p class="mt-4 text-white/70 text-[15px] max-w-2xl">
+                <strong>Illustrative Example Only.</strong> This demonstrates the type of Clean Exit Simulator AUSY intends to provide investors once the product is live. 
+                The scenario assumes hypothetical purchases between January 2027 and January 2028, with a simulated sale in January 2029. All figures are for educational purposes.
+            </p>
+        </div>
+
+        <!-- Controls -->
+        <div class="glass border border-white/10 rounded-3xl p-8 md:p-10">
+            <!-- Strategy Buttons -->
+            <div class="flex flex-wrap gap-3 mb-8">
+                <button data-strategy="fifo" 
+                        class="strategy-btn active px-6 py-2.5 rounded-2xl bg-[#00d4ff] text-[#0a2540] font-semibold text-sm tracking-wide transition-all">
+                    FIFO
+                </button>
+                <button data-strategy="tax" 
+                        class="strategy-btn px-6 py-2.5 rounded-2xl bg-white/5 border border-white/15 hover:bg-white/10 text-white font-medium text-sm tracking-wide transition-all">
+                    Tax Optimised
+                </button>
+                <button data-strategy="return" 
+                        class="strategy-btn px-6 py-2.5 rounded-2xl bg-white/5 border border-white/15 hover:bg-white/10 text-white font-medium text-sm tracking-wide transition-all">
+                    Return Optimised
+                </button>
+                <button data-strategy="underperforming" 
+                        class="strategy-btn px-6 py-2.5 rounded-2xl bg-white/5 border border-white/15 hover:bg-white/10 text-white font-medium text-sm tracking-wide transition-all">
+                    Underperforming
+                </button>
+                <button onclick="resetExitSimulator()" 
+                        class="ml-auto px-5 py-2.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 text-white/60 text-sm transition-all flex items-center gap-x-2">
+                    <i class="fa-solid fa-undo text-xs"></i>
+                    <span>Reset</span>
+                </button>
+            </div>
+
+            <!-- Sale Amount -->
+            <div class="flex flex-col sm:flex-row sm:items-end gap-4 mb-8">
+                <div class="flex-1">
+                    <label class="text-xs font-medium tracking-wider text-white/60 block mb-1.5">AMOUNT TO SELL (AUD)</label>
+                    <div class="relative">
+                        <span class="absolute left-5 top-1/2 -translate-y-1/2 text-white/50">$</span>
+                        <input type="number" id="exit-amount" value="100000" 
+                               class="form-input w-full pl-9 pr-5 h-14 bg-white/5 border border-white/15 focus:border-[#00d4ff] rounded-2xl text-white text-2xl font-semibold tracking-tighter"
+                               oninput="updateExitSimulator()">
+                    </div>
+                </div>
+                <div class="text-white/50 text-sm pb-3 hidden sm:block">
+                    Retail-friendly example amount
+                </div>
+            </div>
+
+            <!-- Tranches -->
+            <div class="flex items-center justify-between mb-3 px-1">
+                <div class="text-xs font-medium tracking-wider text-white/60">YOUR PURCHASE TRANCHES</div>
+                <div class="text-[11px] text-white/50">Click any tranche to exclude it from the simulated sale</div>
+            </div>
+            <div class="space-y-4" id="exit-tranches">
+                <!-- Populated by JavaScript -->
+            </div>
+
+            <!-- Results -->
+            <div class="mt-8 pt-8 border-t border-white/10">
+                <div class="text-xs font-medium tracking-wider text-white/60 mb-3">RESULTS</div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="glass border border-white/10 rounded-2xl p-5">
+                        <div class="text-[11px] text-white/60 tracking-wider">PROFIT (CAPITAL GAIN)</div>
+                        <div id="result-profit" class="text-3xl font-semibold tracking-tighter mt-1 text-[#00d4ff]">$0</div>
+                    </div>
+                    <div class="glass border border-white/10 rounded-2xl p-5">
+                        <div class="text-[11px] text-white/60 tracking-wider">COST BASE USED<sup class="text-[9px] align-super ml-0.5">3</sup></div>
+                        <div id="result-costbase" class="text-3xl font-semibold tracking-tighter mt-1">$0</div>
+                    </div>
+                    <div class="glass border border-white/10 rounded-2xl p-5">
+                        <div class="text-[11px] text-white/60 tracking-wider">AVG ANNUAL GAIN %<sup class="text-[9px] align-super ml-0.5">1</sup></div>
+                        <div id="result-gain" class="text-3xl font-semibold tracking-tighter mt-1">0%</div>
+                    </div>
+                    <div class="glass border border-white/10 rounded-2xl p-5">
+                        <div class="text-[11px] text-white/60 tracking-wider">EST. TAX (15% - SMSF rate)<sup class="text-[9px] align-super ml-0.5">2</sup></div>
+                        <div id="result-tax" class="text-3xl font-semibold tracking-tighter mt-1 text-amber-400">$0</div>
+                    </div>
+                </div>
+
+                <div class="mt-3 text-[10px] text-white/45 leading-snug">
+                    <sup>1</sup> Avg Annual Gain % is the blended capital gain on the sold portion, annualized by weighted average holding period. It includes both the reduction in cost base from distributions (ROC) and any change in asset value due to FX movements.
+                </div>
+
+                <div class="mt-1 text-[10px] text-white/45 leading-snug">
+                    <sup>2</sup> 15% is the standard tax rate on earnings (including capital gains) in an SMSF in the accumulation phase.
+                </div>
+
+                <div class="mt-1 text-[10px] text-white/45 leading-snug">
+                    <sup>3</sup> Cost Base Used reflects the portion of distributions (primarily Return of Capital) already received on the specific units being sold in this simulation.
+                </div>
+
+                <div class="mt-5 text-[11px] text-white/50 leading-relaxed">
+                    This is an educational demonstration only. Actual tax outcomes depend on your personal circumstances, holding periods, and the full Product Disclosure Statement. 
+                    Past performance and illustrative examples are not indicative of future results. Consult a licensed financial adviser.
                 </div>
             </div>
         </div>
@@ -621,14 +1056,16 @@
         </div>
     </section>
 
+    </section>
+
     <!-- FINAL CTA / WAITLIST FORM -->
     <section id="waitlist" class="max-w-screen-2xl mx-auto px-6 md:px-12 py-16 border-t border-white/10">
         <div class="glass border border-white/15 rounded-[2.75rem] px-8 md:px-14 py-12 md:py-16">
             <div class="max-w-2xl mx-auto text-center">
                 <div class="inline-flex items-center rounded-2xl bg-white/5 px-4 h-8 text-xs font-semibold tracking-widest mb-4">EARLY ACCESS NOW OPEN</div>
                 
-                <h2 class="section-header text-5xl md:text-[52px] font-semibold tracking-[-1.8px] leading-[1.05]">Ready to access premium yield?</h2>
-                <p class="mt-4 text-xl text-white/75">Join the priority waitlist. We are opening access in waves. Early applicants will receive the best allocation priority.</p>
+                <h2 class="section-header text-5xl md:text-[52px] font-semibold tracking-[-1.8px] leading-[1.05]">Ready for a better way to invest?</h2>
+                <p class="mt-4 text-xl text-white/75 max-w-lg mx-auto">Join the priority waitlist. Whether you're exiting property, looking for tax-efficient income, or simply want stronger returns without the hassle — we'd love to have you on the list.</p>
             </div>
 
             <!-- Form -->
@@ -930,6 +1367,664 @@
             document.getElementById('calc-exit-value').textContent = '$' + exitValue.toLocaleString('en-AU', {maximumFractionDigits: 0});
         }
 
+        // =====================================================
+        // CLEAN EXIT SIMULATOR
+        // =====================================================
+
+        const exitTranches = [
+            {
+                id: 'A',
+                date: 'Jan 2027',
+                invested: 185000,
+                costBase: 143500,
+                fx: 6.2,
+                currentValue: 196470,
+                holdingYears: 2,
+                distributionsReceived: 41500,
+                note: 'Longest holding period. Largest cumulative ROC reduction + strongest FX tailwind'
+            },
+            {
+                id: 'B',
+                date: 'Jul 2027',
+                invested: 92000,
+                costBase: 76200,
+                fx: -1.8,
+                currentValue: 90344,
+                holdingYears: 1.5,
+                distributionsReceived: 15800,
+                note: 'Mid-period entry. Moderate cost base reduction with mild negative FX movement'
+            },
+            {
+                id: 'C',
+                date: 'Jan 2028',
+                invested: 275000,
+                costBase: 243400,
+                fx: 2.4,
+                currentValue: 281600,
+                holdingYears: 1,
+                distributionsReceived: 31600,
+                note: 'Most recent tranche. One year of distributions with positive FX impact'
+            }
+        ];
+
+        let currentStrategy = 'fifo';
+        let manualOverrides = {}; // For future manual selection
+
+        function getExitSaleAmount() {
+            return parseFloat(document.getElementById('exit-amount').value) || 0;
+        }
+
+        function calculateGainPercent(tranche) {
+            return ((tranche.currentValue - tranche.costBase) / tranche.currentValue) * 100;
+        }
+
+        function calculateEffectiveYield(tranche) {
+            const holdingYears = tranche.holdingYears || 1;
+            return 11.5 + (tranche.fx / holdingYears);
+        }
+
+        function calculateAllocation(saleAmount, strategy) {
+            if (saleAmount <= 0) return {};
+
+            let sortedTranches = [...exitTranches];
+
+            // Filter out manually excluded tranches
+            sortedTranches = sortedTranches.filter(t => manualOverrides[t.id] !== 'excluded');
+
+            if (strategy === 'fifo') {
+                // Already in chronological order
+            } else if (strategy === 'tax') {
+                sortedTranches.sort((a, b) => calculateGainPercent(a) - calculateGainPercent(b));
+            } else if (strategy === 'return') {
+                sortedTranches.sort((a, b) => calculateGainPercent(b) - calculateGainPercent(a));
+            } else if (strategy === 'underperforming') {
+                // Sell lowest effective yield (dividend + annualized FX) first
+                sortedTranches.sort((a, b) => calculateEffectiveYield(a) - calculateEffectiveYield(b));
+            }
+
+            const allocation = {};
+            let remaining = saleAmount;
+
+            for (const tranche of sortedTranches) {
+                if (remaining <= 0) break;
+
+                const available = tranche.currentValue;
+                const take = Math.min(remaining, available);
+
+                allocation[tranche.id] = take;
+                remaining -= take;
+            }
+
+            return allocation;
+        }
+
+        function updateExitSimulator() {
+            const saleAmount = getExitSaleAmount();
+            const container = document.getElementById('exit-tranches');
+            const allocation = calculateAllocation(saleAmount, currentStrategy);
+
+            // Render tranches
+            container.innerHTML = '';
+
+            let totalSoldValue = 0;
+            let totalCostBaseUsed = 0;
+
+            exitTranches.forEach(tranche => {
+                const soldValue = allocation[tranche.id] || 0;
+                const percentOfTranche = tranche.currentValue > 0 ? (soldValue / tranche.currentValue) * 100 : 0;
+
+                const portion = soldValue / tranche.currentValue;
+                const costBaseUsed = portion * tranche.costBase;
+                const gainOnSold = soldValue - costBaseUsed;
+
+                totalSoldValue += soldValue;
+                totalCostBaseUsed += costBaseUsed;
+
+                const fxClass = tranche.fx >= 0 ? 'text-emerald-400' : 'text-red-400';
+                const fxSign = tranche.fx >= 0 ? '+' : '';
+                const isExcluded = manualOverrides[tranche.id] === 'excluded';
+
+                // Effective average yield per year = base yield + annualized FX impact
+                const holdingYears = tranche.holdingYears || 1;
+                const annualizedFx = tranche.fx / holdingYears;
+                const effectiveYield = 11.5 + annualizedFx;
+                const yieldClass = effectiveYield >= 11.5 ? 'text-[#00d4ff]' : 'text-red-400';
+
+                const row = document.createElement('div');
+                row.className = `glass border ${isExcluded ? 'border-red-500/40 opacity-60' : 'border-white/10'} rounded-2xl p-5 cursor-pointer transition-all hover:border-white/20 ${soldValue > 0 && !isExcluded ? 'ring-1 ring-[#00d4ff]/40' : ''}`;
+                row.innerHTML = `
+                    <div class="flex flex-col md:flex-row md:items-center gap-y-4 gap-x-6">
+                        <!-- Tranche Info -->
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-x-2.5">
+                                <div class="font-semibold text-lg tracking-tight">Tranche ${tranche.id}</div>
+                                <div class="text-xs px-2.5 py-0.5 rounded-full bg-white/5 text-white/60">${tranche.date}</div>
+                                <div class="text-xs px-2.5 py-0.5 rounded-full ${fxClass} bg-white/5 font-medium">
+                                    ${fxSign}${tranche.fx}%
+                                </div>
+                                <div class="text-xs px-2.5 py-0.5 rounded-full ${yieldClass} bg-white/5 font-medium" title="Effective AUD yield (base 11.5% + annualized FX impact)">
+                                    ${effectiveYield.toFixed(1)}% p.a.
+                                </div>
+                            </div>
+                            <div class="text-[13px] text-white/60 mt-1">${tranche.note}</div>
+                            
+                            <div class="mt-3 grid grid-cols-3 gap-x-4 text-sm">
+                                <div>
+                                    <span class="text-white/60">Cost Base:</span> 
+                                    <span class="font-medium">$${tranche.costBase.toLocaleString('en-AU')}</span>
+                                </div>
+                                <div>
+                                    <span class="text-white/60">Current Value:</span> 
+                                    <span class="font-medium">$${tranche.currentValue.toLocaleString('en-AU')}</span>
+                                </div>
+                                <div>
+                                    <span class="text-white/60">Distributions Received:</span> 
+                                    <span class="font-medium">$${tranche.distributionsReceived.toLocaleString('en-AU')}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Visual Bar + Amount -->
+                        <div class="w-full md:w-72">
+                            <div class="flex justify-between text-xs text-white/60 mb-1.5">
+                                <div>Used in this sale</div>
+                                <div class="font-medium text-white">
+                                    $${Math.round(soldValue).toLocaleString('en-AU')}
+                                    <span class="text-white/50">(${percentOfTranche.toFixed(1)}%)</span>
+                                </div>
+                            </div>
+                            <div class="h-2.5 bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-2.5 bg-[#00d4ff] transition-all duration-300" 
+                                     style="width: ${Math.min(percentOfTranche, 100)}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Click to toggle manual override (simple version)
+                row.addEventListener('click', () => {
+                    toggleTrancheOverride(tranche.id);
+                });
+
+                container.appendChild(row);
+            });
+
+            // Calculate results
+            const totalGain = totalSoldValue - totalCostBaseUsed;
+            const blendedGainPercent = totalSoldValue > 0 ? (totalGain / totalSoldValue) * 100 : 0;
+            const estTax = Math.max(0, totalGain * 0.15);
+
+            // Calculate value-weighted average holding period for annualization
+            let totalWeightedYears = 0;
+            let totalWeight = 0;
+
+            exitTranches.forEach(tranche => {
+                const soldValue = allocation[tranche.id] || 0;
+                if (soldValue > 0 && tranche.holdingYears) {
+                    totalWeightedYears += tranche.holdingYears * soldValue;
+                    totalWeight += soldValue;
+                }
+            });
+
+            const weightedAvgYears = totalWeight > 0 ? totalWeightedYears / totalWeight : 1;
+            const avgAnnualGain = blendedGainPercent / weightedAvgYears;
+
+            // Update results
+            document.getElementById('result-profit').textContent = '$' + Math.round(totalGain).toLocaleString('en-AU');
+            document.getElementById('result-costbase').textContent = '$' + Math.round(totalCostBaseUsed).toLocaleString('en-AU');
+            document.getElementById('result-gain').textContent = avgAnnualGain.toFixed(1) + '%';
+            document.getElementById('result-tax').textContent = '$' + Math.round(estTax).toLocaleString('en-AU');
+        }
+
+        function setStrategy(strategy) {
+            currentStrategy = strategy;
+            manualOverrides = {}; // Clear manual overrides when changing strategy
+
+            // Update button styles
+            document.querySelectorAll('.strategy-btn').forEach(btn => {
+                if (btn.dataset.strategy === strategy) {
+                    btn.classList.add('active', 'bg-[#00d4ff]', 'text-[#0a2540]');
+                    btn.classList.remove('bg-white/5', 'border', 'border-white/15');
+                } else {
+                    btn.classList.remove('active', 'bg-[#00d4ff]', 'text-[#0a2540]');
+                    btn.classList.add('bg-white/5', 'border', 'border-white/15');
+                }
+            });
+
+            updateExitSimulator();
+        }
+
+        function toggleTrancheOverride(trancheId) {
+            // Simple manual override: toggle whether this tranche is forced in or out
+            if (manualOverrides[trancheId] === undefined) {
+                manualOverrides[trancheId] = 'excluded';
+            } else if (manualOverrides[trancheId] === 'excluded') {
+                manualOverrides[trancheId] = 'forced';
+            } else {
+                delete manualOverrides[trancheId];
+            }
+
+            // For now, a simple approach: re-run with current strategy but respect overrides
+            updateExitSimulator();
+        }
+
+        function resetExitSimulator() {
+            document.getElementById('exit-amount').value = 100000;
+            currentStrategy = 'fifo';
+            manualOverrides = {};
+
+            document.querySelectorAll('.strategy-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-[#00d4ff]', 'text-[#0a2540]');
+                btn.classList.add('bg-white/5', 'border', 'border-white/15');
+
+                if (btn.dataset.strategy === 'fifo') {
+                    btn.classList.add('active', 'bg-[#00d4ff]', 'text-[#0a2540]');
+                    btn.classList.remove('bg-white/5', 'border', 'border-white/15');
+                }
+            });
+
+            updateExitSimulator();
+        }
+
+        function initCleanExitSimulator() {
+            // Set initial active button
+            const fifoBtn = document.querySelector('.strategy-btn[data-strategy="fifo"]');
+            if (fifoBtn) {
+                fifoBtn.classList.add('active', 'bg-[#00d4ff]', 'text-[#0a2540]');
+            }
+
+            // Wire up strategy buttons
+            document.querySelectorAll('.strategy-btn[data-strategy]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    setStrategy(btn.dataset.strategy);
+                });
+            });
+
+            // Initial render
+            updateExitSimulator();
+        }
+
+        // =====================================================
+        // ROC & TAX DEFERRAL SIMULATOR
+        // =====================================================
+
+        let rocChart = null;
+
+        function updateROCSimulator() {
+            const investment = parseFloat(document.getElementById('roc-investment').value) || 100000;
+            const annualYield = parseFloat(document.getElementById('roc-yield').value) || 11.5;
+            const taxRate = parseFloat(document.getElementById('roc-tax-rate').value) || 15;
+
+            const years = 15;
+            const yearlyDistribution = investment * (annualYield / 100);
+
+            let costBase = investment;
+            let cumulativeDistributions = 0;
+            let cumulativeTaxable = 0;
+            let cumulativeTaxPaid = 0;
+
+            const labels = [];
+            const costBaseData = [];
+            const taxableData = [];
+            const afterTaxCumulative = [];
+
+            for (let y = 1; y <= years; y++) {
+                let distribution = yearlyDistribution;
+
+                let taxableThisYear = 0;
+
+                if (costBase > 0) {
+                    const rocThisYear = Math.min(distribution, costBase);
+                    costBase = Math.max(0, costBase - rocThisYear);
+
+                    if (distribution > rocThisYear) {
+                        taxableThisYear = distribution - rocThisYear;
+                    }
+                } else {
+                    taxableThisYear = distribution;
+                }
+
+                cumulativeDistributions += distribution;
+                cumulativeTaxable += taxableThisYear;
+
+                const taxThisYear = taxableThisYear * (taxRate / 100);
+                cumulativeTaxPaid += taxThisYear;
+
+                const afterTaxThisYear = distribution - taxThisYear;
+                const previousAfterTax = afterTaxCumulative.length > 0 ? afterTaxCumulative[afterTaxCumulative.length - 1] : 0;
+                afterTaxCumulative.push(previousAfterTax + afterTaxThisYear);
+
+                labels.push(`Year ${y}`);
+                costBaseData.push(costBase);
+                taxableData.push(cumulativeTaxable);
+            }
+
+            // Update key metrics
+            const yearsToZero = investment / (investment * (annualYield / 100));
+            document.getElementById('roc-years').textContent = yearsToZero.toFixed(1) + ' years';
+
+            document.getElementById('roc-total-dist').textContent = '$' + Math.round(cumulativeDistributions).toLocaleString('en-AU');
+
+            const deferred = cumulativeDistributions - cumulativeTaxable;
+            document.getElementById('roc-tax-deferred').textContent = '$' + Math.round(deferred).toLocaleString('en-AU') + ' tax-deferred';
+
+            const effectiveTaxRate = cumulativeDistributions > 0 
+                ? (cumulativeTaxPaid / cumulativeDistributions) * 100 
+                : 0;
+
+            const taxEl = document.getElementById('roc-total-tax');
+            taxEl.textContent = 
+                `$${Math.round(cumulativeTaxPaid).toLocaleString('en-AU')} or ${effectiveTaxRate.toFixed(1)}%`;
+
+            // Update or create chart
+            const ctx = document.getElementById('roc-chart');
+
+            if (rocChart) {
+                rocChart.destroy();
+            }
+
+            rocChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Remaining Cost Base',
+                            data: costBaseData,
+                            borderColor: '#00d4ff',
+                            backgroundColor: 'rgba(0, 212, 255, 0.1)',
+                            borderWidth: 2.5,
+                            tension: 0.1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'Cumulative Taxable Distributions',
+                            data: taxableData,
+                            borderColor: '#f59e0b',
+                            borderWidth: 2,
+                            tension: 0.1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'After-Tax Cumulative Cash',
+                            data: afterTaxCumulative,
+                            borderColor: '#10b981',
+                            borderDash: [3, 2],
+                            borderWidth: 2,
+                            tension: 0.1,
+                            yAxisID: 'y'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#64748b',
+                                boxWidth: 12,
+                                font: { size: 11 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': $' + Math.round(context.raw).toLocaleString('en-AU');
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: '#64748b',
+                                maxRotation: 45,
+                                font: { size: 10 }
+                            },
+                            grid: { color: 'rgba(255,255,255,0.05)' }
+                        },
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            ticks: {
+                                color: '#64748b',
+                                callback: function(value) {
+                                    return '$' + (value / 1000) + 'k';
+                                }
+                            },
+                            grid: { color: 'rgba(255,255,255,0.05)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function initROCSimulator() {
+            // Set default tax rate
+            const taxSelect = document.getElementById('roc-tax-rate');
+            if (taxSelect) {
+                taxSelect.value = '15';
+            }
+
+            // Initial render
+            setTimeout(() => {
+                updateROCSimulator();
+            }, 100);
+        }
+
+        // =====================================================
+        // DRP & LOAN SERVICING SIMULATOR
+        // =====================================================
+
+        let drpChart = null;
+
+        function updateDRPSimulator() {
+            const investment = parseFloat(document.getElementById('drp-investment').value) || 100000;
+            const annualYield = parseFloat(document.getElementById('drp-yield').value) || 11.5;
+
+            // Determine mode
+            const modeRadio = document.querySelector('input[name="drp-retain-mode"]:checked');
+            const mode = modeRadio ? modeRadio.value : 'percent';
+
+            let retainRate = 0;
+            let retainLabel = '';
+
+            if (mode === 'percent') {
+                const retainPercent = parseFloat(document.getElementById('drp-retain-percent').value) || 30;
+                retainRate = retainPercent / 100;
+                retainLabel = retainPercent + '% of distributions';
+
+                // Update display
+                const retainDisplay = document.getElementById('drp-retain-percent-value');
+                if (retainDisplay) retainDisplay.textContent = retainPercent + '%';
+            } else {
+                const fixedAnnual = parseFloat(document.getElementById('drp-retain-fixed').value) || 0;
+                retainLabel = '$' + fixedAnnual.toLocaleString('en-AU') + ' per year';
+            }
+
+            const years = 15;
+            const totalMonths = years * 12;
+            const monthlyYieldRate = annualYield / 100 / 12;
+
+            let portfolioValue = investment;
+            let cumulativeCash = 0;
+            let trancheCount = 0;
+
+            const labels = [];
+            const portfolioData = [];
+            const cashData = [];
+
+            for (let m = 1; m <= totalMonths; m++) {
+                const distribution = portfolioValue * monthlyYieldRate;
+
+                let cashThisMonth = 0;
+                let reinvestThisMonth = 0;
+
+                if (mode === 'percent') {
+                    cashThisMonth = distribution * retainRate;
+                    reinvestThisMonth = distribution * (1 - retainRate);
+                } else {
+                    // Fixed dollar mode
+                    const fixedAnnual = parseFloat(document.getElementById('drp-retain-fixed').value) || 0;
+                    const fixedMonthly = fixedAnnual / 12;
+
+                    if (distribution >= fixedMonthly) {
+                        cashThisMonth = fixedMonthly;
+                        reinvestThisMonth = distribution - fixedMonthly;
+                    } else {
+                        // Not enough distribution this month — take everything as cash
+                        cashThisMonth = distribution;
+                        reinvestThisMonth = 0;
+                    }
+                }
+
+                portfolioValue += reinvestThisMonth;
+                cumulativeCash += cashThisMonth;
+
+                if (reinvestThisMonth > 0) {
+                    trancheCount++;
+                }
+
+                // Record yearly snapshots
+                if (m % 12 === 0) {
+                    const yearNumber = m / 12;
+                    labels.push(`Year ${yearNumber}`);
+                    portfolioData.push(Math.round(portfolioValue));
+                    cashData.push(Math.round(cumulativeCash));
+                }
+            }
+
+            // Update metrics
+            document.getElementById('drp-cash-extracted').textContent = '$' + Math.round(cumulativeCash).toLocaleString('en-AU');
+            document.getElementById('drp-final-value').textContent = '$' + Math.round(portfolioValue).toLocaleString('en-AU');
+            document.getElementById('drp-tranches').textContent = trancheCount;
+
+            // Chart
+            const ctx = document.getElementById('drp-chart');
+
+            if (drpChart) {
+                drpChart.destroy();
+            }
+
+            drpChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Portfolio Value',
+                            data: portfolioData,
+                            borderColor: '#00d4ff',
+                            backgroundColor: 'rgba(0, 212, 255, 0.1)',
+                            borderWidth: 2.5,
+                            tension: 0.2,
+                            fill: true
+                        },
+                        {
+                            label: 'Cumulative Cash Extracted',
+                            data: cashData,
+                            borderColor: '#10b981',
+                            borderWidth: 2,
+                            tension: 0.2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#64748b',
+                                boxWidth: 12,
+                                font: { size: 11 }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: '#64748b',
+                                font: { size: 10 }
+                            },
+                            grid: { color: 'rgba(255,255,255,0.05)' }
+                        },
+                        y: {
+                            ticks: {
+                                color: '#64748b',
+                                callback: function(value) {
+                                    return '$' + (value / 1000) + 'k';
+                                }
+                            },
+                            grid: { color: 'rgba(255,255,255,0.05)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function initDRPSimulator() {
+            // Set up mode switching
+            const percentMode = document.getElementById('drp-percent-mode');
+            const fixedMode = document.getElementById('drp-fixed-mode');
+            const helpText = document.getElementById('drp-retain-help');
+
+            const modeRadios = document.querySelectorAll('input[name="drp-retain-mode"]');
+
+            function updateModeVisibility() {
+                const selected = document.querySelector('input[name="drp-retain-mode"]:checked');
+                const mode = selected ? selected.value : 'fixed';
+
+                if (mode === 'percent') {
+                    percentMode.classList.remove('hidden');
+                    fixedMode.classList.add('hidden');
+                    if (helpText) helpText.textContent = 'Percentage of each distribution kept as cash for loan payments.';
+                } else {
+                    percentMode.classList.add('hidden');
+                    fixedMode.classList.remove('hidden');
+                    if (helpText) helpText.textContent = 'Fixed annual dollar amount retained as cash (remainder reinvested).';
+                }
+                updateDRPSimulator();
+            }
+
+            modeRadios.forEach(radio => {
+                radio.addEventListener('change', updateModeVisibility);
+            });
+
+            // Set up listeners for the actual inputs
+            const percentSlider = document.getElementById('drp-retain-percent');
+            const percentDisplay = document.getElementById('drp-retain-percent-value');
+            const fixedInput = document.getElementById('drp-retain-fixed');
+
+            if (percentSlider && percentDisplay) {
+                percentSlider.addEventListener('input', function() {
+                    percentDisplay.textContent = this.value + '%';
+                    updateDRPSimulator();
+                });
+            }
+
+            if (fixedInput) {
+                fixedInput.addEventListener('input', updateDRPSimulator);
+            }
+
+            // Initial state - default to Fixed mode
+            // The 'checked' attribute on the Fixed radio handles the initial selection
+            updateModeVisibility();
+
+            // Initial render
+            setTimeout(() => {
+                updateDRPSimulator();
+            }, 100);
+        }
+
         // Waitlist form handling
         function submitWaitlist(e) {
             e.preventDefault();
@@ -1072,6 +2167,9 @@
             initScrollAnimations();
             initKeyboardSupport();
             initHeroEffects();
+            initCleanExitSimulator();
+            initROCSimulator();
+            initDRPSimulator();
 
             // Prefill a nice default value in calculator if opened
             // (already handled on open)
