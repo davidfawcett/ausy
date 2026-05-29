@@ -6,6 +6,8 @@ A high-fidelity, single-page marketing website for **AUSY Fund** — a conceptua
 
 This project is a polished, self-contained landing page that communicates the value proposition of AUSY, a proposed high-yield, tax-efficient investment vehicle with a target distribution yield of ~11.5%.
 
+The live version of this conceptual site is available at **getausy.com**.
+
 The site includes:
 
 - Strong hero messaging and primary CTAs
@@ -14,7 +16,7 @@ The site includes:
 - Step-by-step "How it Works" section
 - Risk disclosures
 - Functional waitlist form with validation
-- Interactive "Easy Exit Calculator" modal
+- Interactive educational cost base simulators (ROC, DRP, and Clean Exit modelling)
 
 **Important:** This is a conceptual marketing site only. AUSY is not currently listed on the ASX. All yields, figures, and features shown are indicative and subject to change.
 
@@ -57,8 +59,8 @@ Because Tailwind is loaded via the Play CDN, you can edit `index.html` directly 
 | Feature                    | Description |
 |---------------------------|-------------|
 | Smooth anchor scrolling   | Custom offset system (`--nav-offset`) prevents content from being hidden behind the sticky navbar |
-| Waitlist form             | Client-side validation + success state (currently logs submissions) |
-| Exit Calculator           | Fully functional modal with live calculations for investment outcomes |
+| Waitlist form             | Client-side validation + success state (submits to Google Form) |
+| Educational Simulators    | Interactive modelling tools for ROC tax deferral, DRP reinvestment, and tranche-based exit planning |
 | Responsive design         | Mobile-first layout with a collapsible mobile menu |
 | Button & shadow polish    | Custom tight shadows on primary CTAs for a premium, grounded feel |
 | Keyboard accessibility    | Focus states, escape key support for modals, etc. |
@@ -78,20 +80,20 @@ The accent cyan (`#00d4ff`) is used extensively for CTAs, icons, and highlights.
 
 ### Content
 
-All marketing copy, feature descriptions, and legal disclaimers live directly in `index.html`. Search for section comments (e.g., `<!-- WHY AUSY -->`) to locate specific areas.
+All marketing copy, feature descriptions, and legal disclaimers live directly in `index.html`. Search for section comments (e.g., `<!-- WHY AUSY -->` or the new intent blocks at the top of major sections) to locate specific areas. Many comments have been written to clearly document conceptual/pre-launch intent.
 
 ### Form Handling
 
 The waitlist form currently:
 - Validates required fields
-- Shows a success state on "submission"
-- Logs form data to the console
+- Submits to a Google Form (for early interest capture)
+- Shows a success state on submission
 
-Replace the `submitWaitlist()` function with real API integration when ready.
+The form is intentionally lightweight for this conceptual stage. It can be replaced with a more robust backend once the project moves forward.
 
 ### Launch Timeline
 
-The launch target text appears in the trust bar near the top. It was recently updated to **Q2 2027**.
+The site currently references a proposed target timeline of **Q2 2027** in the hero section. All timeline language is illustrative only.
 
 ## Browser Support
 
@@ -104,17 +106,20 @@ Designed for modern evergreen browsers. The site uses:
 
 ## Recent Improvements
 
-- Fixed sticky navbar overlapping section headings on navigation
-- Significantly tightened button shadows for better visual hierarchy
-- Improved top spacing on the Features section
-- Updated launch messaging
-- Added precise scroll offset system using a CSS variable
+- Adopted `getausy.com` as the primary domain
+- Added working `Contact` mailto link in footer (`contact@getausy.com`)
+- Significantly strengthened meta tags (title, Open Graph, and Twitter Card)
+- Updated form placeholders for better Australian tone and domain consistency
+- Removed the old Easy Exit Calculator in favour of more educational cost base simulators
+- Strengthened compliance language throughout ("proposed", "conceptual", "educational tool only")
+- Improved framing of all simulators as generic cost base education tools rather than product-specific demonstrations
+- Added and updated multiple HTML comments throughout index.html to clearly document conceptual/pre-launch intent (even non-visible comments)
 
 ## Legal & Disclaimers
 
-This website contains general information only and does not constitute financial product advice. All content includes prominent disclaimers as required for financial product marketing in Australia.
+This is a conceptual marketing website only. It does not represent an offer of any financial product. All content is general information and includes prominent disclaimers consistent with Australian financial services requirements.
 
-Do not use this site for actual investor communications without proper regulatory review and a live Product Disclosure Statement (PDS).
+The site deliberately uses cautious language ("proposed", "we're building", "conceptual", "educational tool only") to avoid implying that AUSY is a live or guaranteed product. Do not use this site for actual investor communications without proper regulatory review and a Product Disclosure Statement (PDS).
 
 ## License
 
