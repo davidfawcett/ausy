@@ -499,7 +499,8 @@
 
         <div class="glass border border-white/10 rounded-3xl p-8 md:p-10">
             <!-- Controls -->
-            <div class="grid md:grid-cols-3 gap-6 mb-8">
+            <fieldset class="grid md:grid-cols-3 gap-6 mb-8">
+                <legend class="text-xs font-medium tracking-wider text-white/60 block mb-1.5 col-span-full">Parameters</legend>
                 <div>
                     <label for="roc-investment" class="text-xs font-medium tracking-wider text-white/60 block mb-1.5">INITIAL INVESTMENT</label>
                     <div class="relative">
@@ -529,7 +530,7 @@
                         <option value="47">47% (Top Marginal Rate)</option>
                     </select>
                 </div>
-            </div>
+            </fieldset>
 
             <!-- Chart -->
             <div class="mb-6">
@@ -578,7 +579,8 @@
 
         <div class="glass border border-white/10 rounded-3xl p-8 md:p-10">
             <!-- Controls -->
-            <div class="grid md:grid-cols-3 gap-6 mb-8">
+            <fieldset class="grid md:grid-cols-3 gap-6 mb-8">
+                <legend class="text-xs font-medium tracking-wider text-white/60 block mb-1.5 col-span-full">Parameters</legend>
                 <div>
                     <label for="drp-investment" class="text-xs font-medium tracking-wider text-white/60 block mb-1.5">STARTING VALUE</label>
                     <div class="relative">
@@ -597,8 +599,8 @@
                         <span class="absolute right-5 top-1/2 -translate-y-1/2 text-white/50">%</span>
                     </div>
                 </div>
-                <div>
-                    <label class="text-xs font-medium tracking-wider text-white/60 block mb-1.5">CASH TO RETAIN FOR LOAN SERVICING</label>
+                <fieldset>
+                    <legend class="text-xs font-medium tracking-wider text-white/60 block mb-1.5">CASH TO RETAIN FOR LOAN SERVICING</legend>
                     
                     <!-- Mode selector -->
                     <div class="flex rounded-xl bg-white/5 p-1 mb-2 text-xs">
@@ -642,7 +644,7 @@
                     <div class="text-[10px] text-white/50 mt-1" id="drp-retain-help">
                         Percentage of each distribution kept as cash for loan payments.
                     </div>
-                </div>
+                </fieldset>
             </div>
 
             <!-- Chart -->
@@ -990,7 +992,8 @@
             </div>
 
             <!-- Sale Amount -->
-            <div class="flex flex-col sm:flex-row sm:items-end gap-4 mb-8">
+            <fieldset class="flex flex-col sm:flex-row sm:items-end gap-4 mb-8">
+                <legend class="text-xs font-medium tracking-wider text-white/60 block mb-1.5 col-span-full">Sale Amount</legend>
                 <div class="flex-1">
                     <label for="exit-amount" class="text-xs font-medium tracking-wider text-white/60 block mb-1.5">AMOUNT TO SELL (AUD)</label>
                     <div class="relative">
@@ -1003,7 +1006,7 @@
                 <div class="text-white/50 text-sm pb-3 hidden sm:block">
                     Retail-friendly example amount
                 </div>
-            </div>
+            </fieldset>
 
             <!-- Tranches -->
             <div class="flex items-center justify-between mb-3 px-1">
