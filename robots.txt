@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap will be added once created
-# Sitemap: https://getausy.com/sitemap.xml
+Sitemap: https://getausy.com/sitemap.xml
